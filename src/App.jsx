@@ -15,7 +15,7 @@ function App() {
     const count = [];
     for (let i = 0; i < 4; i++) {
       for (let j = 0; j < 4; j++) {
-        count.push({ j, i });
+        count.push({ x: j, y: i });
       }
     }
     setBoxes(count);
@@ -33,12 +33,12 @@ function App() {
           onMouseLeave={() => setIsBig(false)}
         >
           {boxes.length > 0 &&
-            boxes.map((box, index) => (
+            boxes.map(({ x, y }, index) => (
               <div
                 key={index}
                 className="box"
                 style={{
-                  backgroundPosition: `${-box.j * 125}px ${-box.i * 125}px`,
+                  backgroundPosition: `${-x * 125}px ${-y * 125}px`,
                 }}
               ></div>
             ))}
