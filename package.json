@@ -23,6 +23,10 @@
       "react-app/jest"
     ]
   },
+  "devDependencies": {
+    "node-sass": "^6.0.1",
+    "sass-loader": "^12.1.0"
+  },
   "browserslist": {
     "production": [
       ">0.2%",
