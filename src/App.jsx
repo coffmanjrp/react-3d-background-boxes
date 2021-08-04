@@ -27,7 +27,11 @@ function App() {
         <button className="magic" onClick={() => setIsBig((isBig) => !isBig)}>
           Magic 🎩
         </button>
-        <div className={`boxes${isBig ? ' big' : ''}`}>
+        <div
+          className={`boxes${isBig ? ' big' : ''}`}
+          onMouseOver={() => setIsBig(true)}
+          onMouseLeave={() => setIsBig(false)}
+        >
           {boxes.length > 0 &&
             boxes.map((box, index) => (
               <div
