@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import './App.scss';
 
 function App() {
+  const [isBig, setIsBig] = useState(false);
   const [boxes, setBoxes] = useState([{}]);
 
   useEffect(() => {
@@ -23,8 +24,10 @@ function App() {
   return (
     <div className="App">
       <div className="flex-container">
-        <button className="magic">Magic 🎩</button>
-        <div className="boxes">
+        <button className="magic" onClick={() => setIsBig((isBig) => !isBig)}>
+          Magic 🎩
+        </button>
+        <div className={`boxes${isBig ? ' big' : ''}`}>
           {boxes.length > 0 &&
             boxes.map((box, index) => (
               <div
