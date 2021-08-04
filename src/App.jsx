@@ -4,6 +4,8 @@ import './App.scss';
 function App() {
   const [isBig, setIsBig] = useState(false);
   const [boxes, setBoxes] = useState([{}]);
+  const sizeX = 125;
+  const sizeY = 125;
 
   useEffect(() => {
     createBoxes();
@@ -12,19 +14,19 @@ function App() {
   }, []);
 
   const createBoxes = () => {
-    const count = [];
+    const position = [];
     for (let i = 0; i < 4; i++) {
       for (let j = 0; j < 4; j++) {
-        count.push({ x: j, y: i });
+        position.push({ x: j, y: i });
       }
     }
-    setBoxes(count);
+    setBoxes(position);
   };
 
   return (
     <div className="App">
       <div className="flex-container">
-        <button className="magic" onClick={() => setIsBig((isBig) => !isBig)}>
+        <button className="magic" onClick={() => setIsBig((value) => !value)}>
           Magic 🎩
         </button>
         <div
@@ -38,7 +40,7 @@ function App() {
                 key={index}
                 className="box"
                 style={{
-                  backgroundPosition: `${-x * 125}px ${-y * 125}px`,
+                  backgroundPosition: `${-x * sizeX}px ${-y * sizeY}px`,
                 }}
               ></div>
             ))}
